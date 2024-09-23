@@ -3,7 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: processor-gateway
-  namespace: flux-system
+  namespace: fluxcdpoc
 spec:
   interval: 30s
   ref:
