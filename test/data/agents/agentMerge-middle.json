@@ -1,0 +1,175 @@
+{
+  "camel": "1.0.0",
+  "name": "agentMerge-middle",
+  "title": "merge test agent",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "Text",
+      "signalId": "agent-input",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "output",
+      "signalId": "agent-output",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "good-skill",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skill1",
+      "_layout": {
+        "cellIndex": 67
+      }
+    },
+    {
+      "skillName": "good-skill",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skill2",
+      "_layout": {
+        "cellIndex": 68
+      }
+    },
+    {
+      "skillName": "good-skill",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skilllast",
+      "_layout": {
+        "cellIndex": 72
+      }
+    },
+    {
+      "skillName": "merge",
+      "title": "Merge Results",
+      "description": "Merges the results of skills linked",
+      "refId": "merge-result1",
+      "properties": [
+        {
+          "name": "items",
+          "value": 2
+        },
+        {
+          "name": "timeout",
+          "value": 0
+        }
+      ],
+      "_layout": {
+        "cellIndex": 71
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "agent-input"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skill1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "agent-input"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skill2",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skill1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "merge-result1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skill2",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "merge-result1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "merge-result1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skilllast",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skilllast",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "agent-output"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "_projectId": "johan",
+  "_valid": true,
+  "properties": [],
+  "_createdAt": "2021-04-20T03:09:40.820Z",
+  "_updatedAt": "2021-04-20T03:09:40.820Z",
+  "_version": 3
+}

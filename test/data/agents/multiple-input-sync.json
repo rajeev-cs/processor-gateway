@@ -1,0 +1,169 @@
+{
+  "camel": "1.0.0",
+  "name": "multiple-input-sync",
+  "title": "Multiple input sync test",
+  "tags": [],
+  "properties": [],
+  "inputs": [
+    {
+      "name": "a",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "inputA",
+      "output": "a",
+      "signalType": "Service"
+    },
+    {
+      "name": "b",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "inputB",
+      "output": "b",
+      "signalType": "Service"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "a",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "outputA",
+      "signalType": "Service"
+    },
+    {
+      "name": "b",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "outputB",
+      "signalType": "Service"
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "good-skill",
+      "title": "ydaemon2",
+      "description": "ydaemon2",
+      "refId": "ydaemon2",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 57
+      }
+    },
+    {
+      "skillName": "good-skill",
+      "title": "ydaemonB",
+      "description": "ydaemonB",
+      "refId": "ydaemonB",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 69
+      }
+    },
+    {
+      "skillName": "cortex/hubblejob",
+      "title": "yjob1",
+      "description": "yjob1",
+      "refId": "yjob1",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 75
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "inputA"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "ydaemon2",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "ydaemon2",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "ydaemonB",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "ydaemonB",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "yjob1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "yjob1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "outputA"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "inputB"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "ydaemon2",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "ydaemon2",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "outputB"
+        }
+      },
+      "rules": []
+    }
+  ]
+}

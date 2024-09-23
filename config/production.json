@@ -1,0 +1,34 @@
+{
+  "mongo": {
+    "uri": "mongodb://cortex-mongodb:27017/cortex_servicess"
+  },
+  "redis": {
+    "uri": "redis://cortex-redis:6379"
+  },
+  "services": {
+    "accounts": {
+      "endpoint": "http://cortex-accounts:5000"
+    },
+    "api": {
+      "endpoint": "http://istio-ingressgateway.istio-system.svc.cluster.local"
+    },
+    "callback": {
+      "endpoint": "http://cortex-processor-gateway.cortex.svc.cluster.local:4444"
+    },
+    "connections": {
+      "endpoint": "http://cortex-connections:4450"
+    }
+  },
+  "resources": {
+    "provider": "k8s"
+  },
+  "agentEvents": {
+    "handlers": ["log", "ws"],
+    "pingInterval": 30000
+  },
+  "state": {
+    "store": "mongo"
+  },
+  "connectors": {
+    "configPath": "/app/config.d"
+  }}

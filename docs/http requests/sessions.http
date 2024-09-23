@@ -1,0 +1,40 @@
+### Update session
+POST {{host}}/fabric/v4/projects/{{projectId}}/sessions/12345
+Accept: application/json
+Authorization: bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "state": { "val1": 1, "val2":"xxx", "val3": true },
+  "ttl": 100
+}
+
+### Create session
+POST {{host}}/fabric/v4/projects/{{projectId}}/sessions
+Accept: application/json
+Authorization: bearer {{jwt}}
+Content-Type: application/json
+
+{
+  "state": { "val1": 1, "val2":"xxx", "val3": true },
+  "ttl": "100"
+}
+
+### List sessions
+GET {{host}}/fabric/v4/projects/{{projectId}}/sessions
+Accept: application/json
+Authorization: bearer {{jwt}}
+
+### Get session
+GET {{host}}/fabric/v4/projects/{{projectId}}/sessions/12345
+Accept: application/json
+Authorization: bearer {{jwt}}
+
+### Delete session
+DELETE {{host}}/fabric/v4/projects/{{projectId}}/sessions/12345
+Accept: application/json
+Authorization: bearer {{jwt}}
+
+
+
+

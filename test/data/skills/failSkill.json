@@ -1,0 +1,46 @@
+{
+  "camel": "1.0.0",
+  "name": "failSkill",
+  "title": "failSkill",
+  "description": "...",
+  "properties": [
+    {
+      "name": "script",
+      "required": true,
+      "type": "string",
+      "defaultValue": "function invoke(payload, token, activationId, channelId, sessionId, properties) { throw Error('Told to fail'); }"
+    }
+  ],
+  "inputs": [
+    {
+      "_id": "5e72d0d6927f3011b1a9209e",
+      "name": "input",
+      "title": "input",
+      "routing": {
+        "all": {
+          "action": "script",
+          "output": "output",
+          "runtime": "cortex/system"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "_id": "5e72d0d6927f30d37ca9209f",
+      "name": "output",
+      "title": "response"
+    },
+    {
+      "_id": "5e72d0d6927f30d37ca9209f",
+      "name": "no-op",
+      "title": "noop"
+    }
+  ],
+  "_projectId": "cogscale",
+  "tags": [],
+  "datasets": [],
+  "_createdAt": "2020-03-19T01:54:30.228Z",
+  "_updatedAt": "2020-03-19T01:54:30.228Z",
+  "_version": 1
+}

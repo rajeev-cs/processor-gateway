@@ -1,0 +1,47 @@
+{
+  "apiVersion": "fabric.cognitivescale.com/v1",
+  "kind": "Skill",
+  "metadata": {
+    "labels": {
+      "fabric.project": "<REPLACE ME>",
+      "fabric.skill-version": "<REPLACE ME>"
+    },
+    "name": "sys-invoke-skill"
+  },
+  "spec": {
+    "actions": [
+      {
+        "name": "invoke",
+        "podSpec": {
+          "containers": [
+            {
+              "env": [],
+              "image":  "<REPLACE ME>",
+              "command": ["scuttle", "node", "./dist/sys-invoke-skill.js"],
+              "imagePullPolicy": "IfNotPresent",
+              "name": "jobskill"
+            }
+          ]
+        },
+        "type": "job"
+      }
+    ],
+    "inputs": [
+      {
+        "name": "input",
+        "routing": {
+          "all": {
+            "action": "invoke",
+            "output": "output",
+            "runtime": "cortex/jobs"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output"
+      }
+    ]
+  }
+}

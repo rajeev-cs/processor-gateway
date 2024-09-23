@@ -1,0 +1,63 @@
+{
+  "_id": "5fb6cfc467e216d94417fc49",
+  "camel": "1.0.0",
+  "name": "cortex/httpbin-ext",
+  "title": "httpbin api",
+  "description": "...",
+  "properties": [
+    {
+      "name": "url",
+      "title": "Url",
+      "required": true,
+      "type": "String",
+      "defaultValue": "http://httpbin.org"
+    },
+    {
+      "name": "path",
+      "title": "API path",
+      "required": true,
+      "type": "String",
+      "defaultValue": "post"
+    },
+    {
+      "name": "method",
+      "title": "HTTP Method",
+      "required": true,
+      "type": "String",
+      "defaultValue": "post"
+    },
+    {
+      "name": "headers.content-type",
+      "title": "content-type header",
+      "required": true,
+      "type": "String",
+      "defaultValue": "application/json"
+    }
+  ],
+  "inputs": [
+    {
+      "_id": "5fb6cfc467e216d94417fc4a",
+      "name": "input",
+      "title": "input",
+      "routing": {
+        "all": {
+          "output": "output",
+          "runtime": "cortex/external-api"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "_id": "5fb6cfc467e216d94417fc4b",
+      "name": "output",
+      "title": "output"
+    }
+  ],
+  "_projectId": "cogscale",
+  "tags": [],
+  "datasets": [],
+  "_createdAt": "2020-11-19T20:04:20.497Z",
+  "_updatedAt": "2020-11-19T20:04:20.497Z",
+  "_version": 1
+}

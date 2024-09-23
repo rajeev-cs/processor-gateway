@@ -1,0 +1,43 @@
+{
+  "services": {
+    "api": {
+      "endpoint": "http://localhost:8888"
+    },
+    "accounts": {
+      "endpoint": "http://localhost:8888"
+    },
+    "connections": {
+      "endpoint": "http://localhost:8888"
+    }
+
+  },
+  "mongo": {
+    "uri": "mongodb://127.0.0.1:26017/cortex-gateway-test"
+  },
+  "redis": {
+    "uri": "redis://localhost:8379"
+  },
+  "agentEvents": {
+    "handlers": ["log"],
+    "pingInterval": 30000
+  },
+  "features": {
+    "scripted_skills": true,
+    "agent_workers": false,
+    "persist_tasks": false,
+    "daemon_path_templates": true,
+    "disable_cache": false
+  },
+  "agentLogger": {
+    "logPayload": true,
+    "level": "WARN",
+    "logProperties": true
+  },
+  "kafka": {
+    "maxParallelHandles": 100
+  },
+  "kubernetes": {
+    "invokeImage": "testinvoke:image",
+    "config": "test"
+  }
+}

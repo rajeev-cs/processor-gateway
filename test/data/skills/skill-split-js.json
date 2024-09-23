@@ -1,0 +1,55 @@
+{
+  "_id": "6124fe384555dd6b52d3264e",
+  "camel": "1.0.0",
+  "name": "skill-split-js",
+  "title": "JS split skill",
+  "description": "...",
+  "properties": [
+    {
+      "validValues": [],
+      "_id": "6124fe384555ddd999d3264f",
+      "name": "skillName",
+      "type": "string",
+      "defaultValue": "split",
+      "required": false,
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "_id": "6124fe384555ddbc32d32650",
+      "name": "script",
+      "required": true,
+      "type": "string",
+      "defaultValue": "function invoke(payload, token, activationId, channelId, sessionId, properties) { \n  return { payload: {message: `ECHO: ${properties.skillName} ${payload.message}`}}\n}\n",
+      "secure": false
+    }
+  ],
+  "inputs": [
+    {
+      "_id": "6124fe384555dd7ad5d32651",
+      "name": "input",
+      "title": "input",
+      "routing": {
+        "all": {
+          "action": "script",
+          "output": "output",
+          "runtime": "cortex/system"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "_id": "6124fe384555dd45d2d32652",
+      "name": "output",
+      "title": "Output"
+    }
+  ],
+  "_projectId": "cogscale",
+  "_createdBy": "cortex@example.com",
+  "tags": [],
+  "actions": [],
+  "_createdAt": "2021-08-24T14:12:08.333Z",
+  "_updatedAt": "2021-08-24T14:12:08.333Z",
+  "_version": 2
+}

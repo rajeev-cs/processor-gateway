@@ -1,0 +1,27 @@
+{
+  "camel": "1.0.0",
+  "name": "cortex/httpbin-agent",
+  "title": "test outputName other than output",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "title": "text",
+          "type": "string"
+        }
+      ],
+      "output": "output"
+    }
+  ],
+  "outputs": [],
+  "skills": [],
+  "mappings": [],
+  "properties": []
+}

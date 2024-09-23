@@ -1,0 +1,12 @@
+[
+  ["@annually", true],
+  ["@yearly", true],
+  ["@monthly", true],
+  ["@weekly", true],
+  ["@daily", true],
+  ["@hourly", true],
+  ["@each ", false],
+  ["* * * * *", true],
+  ["*/2 * * * *", true]
+]
+

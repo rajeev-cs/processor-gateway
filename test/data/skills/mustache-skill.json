@@ -1,0 +1,81 @@
+{
+  "camel": "1.0.0",
+  "name": "mustache-template",
+  "title": "sample skill using mustache template in default path",
+  "description": "...",
+  "_projectId": "cogscale",
+  "properties": [
+    {
+      "validValues": [],
+      "name": "daemon.method",
+      "title": "Daemon method",
+      "description": "method",
+      "required": true,
+      "type": "string",
+      "defaultValue": "GET",
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "name": "dynamicPath",
+      "title": "Dynamic Path",
+      "required": true,
+      "type": "string"
+    },
+
+    {
+      "validValues": [],
+      "name": "daemon.path",
+      "title": "Daemon path",
+      "description": "path",
+      "required": true,
+      "type": "string",
+      "defaultValue": "/{{properties.dynamicPath}}/{{payload.profileId}}",
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "name": "daemon.port",
+      "title": "Daemon port",
+      "description": "method",
+      "required": true,
+      "type": "number",
+      "defaultValue": "8888",
+      "secure": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "mesgin",
+      "title": "mesgin",
+      "description": "use name other than input ...",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "routing": {
+        "all": {
+          "action": "daemonGood",
+          "output": "mesgout",
+          "runtime": "cortex/daemon"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mesgout",
+      "title": "mesgout",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "daemonGood",
+      "type": "daemon"
+    }
+  ],
+  "tags": [],
+  "datasets": []
+}

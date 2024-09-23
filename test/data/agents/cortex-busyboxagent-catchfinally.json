@@ -1,0 +1,138 @@
+{
+  "camel": "1.0.0",
+  "name": "cortex/busyboxagent-catchfinally",
+  "title": "calls single busybox daemon",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "output",
+      "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "finally": {
+        "skillName": "nock-skill",
+        "properties": [
+          {
+            "name": "daemon.method",
+            "value": "POST"
+          },
+          {
+            "name": "daemon.path",
+            "value": "finally"
+          },
+          {
+            "name": "daemon.port",
+            "value": "8080"
+          }
+        ],
+        "inputName": "input"
+      },
+      "catch": {
+        "skillName": "nock-skill",
+        "properties": [
+          {
+            "name": "daemon.method",
+            "value": "POST"
+          },
+          {
+            "name": "daemon.path",
+            "value": "catch"
+          },
+          {
+            "name": "daemon.port",
+            "value": "8080"
+          }
+        ],
+        "inputName": "input"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "properties": [],
+      "skillName": "failSkill",
+      "title": "Left Skill",
+      "refId": "6697e03c-cca0-4969-bd41-86ce00968455"
+    },
+    {
+      "properties": [],
+      "title": "Right Skill",
+      "skillName": "failSkill",
+      "refId": "9997e03c-cca0-4969-bd41-86ce00968455"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "9997e03c-cca0-4969-bd41-86ce00968455",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "9997e03c-cca0-4969-bd41-86ce00968455",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "properties": []
+}

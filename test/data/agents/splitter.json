@@ -1,0 +1,180 @@
+{
+  "camel": "1.0.0",
+  "name": "splitter",
+  "title": "splitter agent",
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "input1",
+      "parameters": [
+        {
+          "name": "number",
+          "required": false,
+          "title": "number",
+          "type": "integer"
+        }
+      ],
+      "output": "predict"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "predict",
+      "title": "predictions",
+      "signalId": "output1",
+      "parameters": [
+        {
+          "name": "predictions",
+          "required": false,
+          "title": "predictions",
+          "type": "object"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "properties": [],
+      "skillName": "hasher",
+      "title": "hashing skill",
+      "description": "...",
+      "refId": "hasher1"
+    },
+    {
+      "properties": [],
+      "skillName": "even-model",
+      "title": "even model skill",
+      "description": "...",
+      "refId": "even1"
+    },
+    {
+      "properties": [],
+      "skillName": "odd-model",
+      "title": "model odd skill",
+      "description": "...",
+      "refId": "oddmodel1"
+    },
+    {
+      "properties": [],
+      "skillName": "writer",
+      "title": "writer skill",
+      "description": "...",
+      "refId": "writer1"
+    },
+    {
+      "properties": [],
+      "skillName": "lastSkill",
+      "title": "last skill",
+      "description": "...",
+      "refId": "lastskill1"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "input1"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "hasher1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "hasher1",
+          "output": "even"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "even1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "hasher1",
+          "output": "odd"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "oddmodel1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "even1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "writer1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "oddmodel1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "writer1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "writer1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "lastskill1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "lastskill1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "output1"
+        }
+      },
+      "rules": []
+    }
+  ]
+}

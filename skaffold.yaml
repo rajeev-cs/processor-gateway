@@ -1,0 +1,28 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+build:
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+  - image: c12e/cortex-processor-gateway
+    docker:
+      dockerfile: ./Dockerfile
+      buildArgs:
+        NPMRC: '{{.NPMRC}}'
+  local:
+    push: false
+    useDockerCLI: true
+deploy:
+  kubectl:
+    manifests:
+    - k8s/*
+    flags:
+      apply:
+      - --force=true
+      - --overwrite=true
+portForward:
+  - resourceName: cortex-processor-gateway
+    namespace: cortex
+    resourceType: deployment
+    port: 9229
+    localPort: 9229

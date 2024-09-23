@@ -1,0 +1,40 @@
+camel: 1.0.0
+name: default/SkillTester
+title: Skill Tester
+description: Tester
+inputs:
+- name: input
+  title: Input Title
+  parameters:
+  - name: text
+    type: string
+  - name: model
+    type: string
+  signalId: 05d1fecd-3168-487a-bb9e-eabc2215ec68
+  signalType: Service
+  output: output
+outputs:
+- name: output
+  title: Output Title
+  parameters:
+  - name: text
+    type: string
+  signalId: 1c44cc82-4132-4511-a731-79e1090fdcae
+  signalType: Service
+skills:
+- skillName: unittest/route_test_skill
+  refId: 476f60c1-125e-4e92-978c-9c6cce3b30e7
+mappings:
+- from:
+    input:
+      signalId: 05d1fecd-3168-487a-bb9e-eabc2215ec68
+  to:
+    skill:
+      refId: 476f60c1-125e-4e92-978c-9c6cce3b30e7
+      input: text
+- from:
+    skill:
+      refId: 476f60c1-125e-4e92-978c-9c6cce3b30e7
+  to:
+    output:
+      signalId: 1c44cc82-4132-4511-a731-79e1090fdcae

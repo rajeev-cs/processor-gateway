@@ -1,0 +1,22 @@
+# Use this to test the daemon outside of GW
+#  curl -X POST -H "Content-Type: application/json" -H "Authorization: bearer ${CORTEX_TOKEN}" -d '{"token":"XXXXXXXXXXXXXXXXXXXXXXX","apiEndpoint":"http://localhost:3000","payload":{"text":"sw in Message"},"activationId":"myactivation","channelId":"chanelId","projectId":"myproject","properties":{"sleepMs":2000,"sfailRegex":"sw .*"}}' "${CORTEX_URL}/myapi"
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: cortex-dex-service
+  namespace: cortex-compute
+spec:
+  gateways:
+    - cortex/cortex-gateway
+  hosts:
+    - '*'
+  http:
+    - match:
+        - uri:
+            prefix: /myapi
+      name: dex-route
+      route:
+        - destination:
+            host: johan-patterndaemon-patterndaemon.cortex-compute.svc.cluster.local
+            port:
+              number: 8000

@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gateway-connector-configs
+data:
+  kafka.json: |
+    {
+      "name": "kafkaDefault",
+      "type": "kafka",
+      "kafka": {
+         "config": {
+            "clientId": "gateway",
+            "brokers": ["fabric-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092"]
+         },
+        "groupId": "gateway",
+        "inTopic": "fabric-in",
+        "outTopic": "fabric-out",
+        "retryTopic": "fabric-err",
+        "format": "JSON"
+      },
+      "pat": {
+        "jwk": {
+          "crv": "Ed25519",
+          "x": "hgLTjmVDLr4L-_kVTIAo5_2-VLxVmhHoFR5dZPYZwoU",
+          "d": "Ui6FW95O02GUg4E0ow54ZCNUkZGTYGPWENbjgt-YOJ4",
+          "kty": "OKP",
+          "kid": "Wh8iRyDZh7ViepiBezZt215j6RIe5pGXHJlTDJZkV9w"
+        },
+        "issuer": "cognitivescale.com",
+        "audience": "cortex",
+        "username": "27b526b2-fe8f-4519-b5e9-953f666abb9a",
+        "url": "https://192.168.39.198:32427"
+      },
+      "retryable": "() => false",
+      "before": "(msg) => msg",
+      "after": "(msg) => msg"
+    }

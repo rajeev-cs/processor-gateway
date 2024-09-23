@@ -1,0 +1,60 @@
+{
+  "entryFile": "lib/server.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["lib/controllers/*.controller.ts"],
+  "spec": {
+    "outputDirectory": "spec",
+    "specVersion": 3,
+    "securityDefinitions": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "tags": [
+      {
+        "name": "Agent and Skill Activations",
+        "description": "Operations for granting/revoking access to different internal resources",
+        "externalDocs": {
+          "description": "Find out more about RBAC within Cortex",
+          "url": "/docs/administration/rbac/"
+        }
+      },
+      {
+        "name": "Secrets",
+        "description": "Manage secure values within Fabric stored as secrets.",
+        "externalDocs": {
+          "description": "Find out more about secrets in Fabric.",
+          "url": "/docs/administration/secrets"
+        }
+      },
+      {
+        "name": "Tasks",
+        "description": "Managed Job Skill executions: list, get logs, manage schedules, and delete.",
+        "externalDocs": {
+          "description": "Find out more about tasks in Fabric.",
+          "url": "/docs/build-agents/tasks"
+        }
+      },
+      {
+        "name": "Sessions",
+        "description": "Create sessions to cache and share data between skills and agents",
+        "externalDocs": {
+          "description": "Find out more about sessions in Fabric.",
+          "url": "/docs/build-agents/agent-patterns/sessions"
+        }
+      }
+    ]
+  },
+  "routes": {
+    "authenticationModule": "lib/controllers/authentication.ts",
+    "routesDir": "lib/routes_gen",
+    "middleware": "express",
+    "iocModule": "lib/ioc.ts",
+    "esm": true
+  },
+  "swagger": {
+    "outputDirectory": ".",
+    "entryFile": "lib/server.ts"
+  }
+}

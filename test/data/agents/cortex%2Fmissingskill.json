@@ -1,0 +1,67 @@
+{
+  "camel": "1.0.0",
+  "name": "cortex/missingskill",
+  "title": "calls single busybox daemon",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "output",
+      "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "properties": [],
+      "skillName": "nothere",
+      "refId": "6697e03c-cca0-4969-bd41-86ce00968455"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "input": "mesgin"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "output": "mesgout"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "properties": []
+}

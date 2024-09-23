@@ -1,0 +1,92 @@
+{
+  "camel": "1.0.0",
+  "name": "multi-input-daemon-job",
+  "title": "busybox daemon",
+  "description": "...",
+  "_projectId": "cogscale",
+  "properties": [
+    {
+      "validValues": [],
+      "name": "daemon.method",
+      "title": "Daemon method",
+      "description": "method",
+      "required": true,
+      "type": "string",
+      "defaultValue": "GET",
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "name": "daemon.path",
+      "title": "Daemon path",
+      "description": "path",
+      "required": true,
+      "type": "string",
+      "defaultValue": "myapi",
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "name": "daemon.port",
+      "title": "Daemon port",
+      "description": "method",
+      "required": true,
+      "type": "number",
+      "defaultValue": "8888",
+      "secure": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "daemon",
+      "title": "mesgin",
+      "description": "use name other than input ...",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "routing": {
+        "all": {
+          "action": "daemonGood",
+          "output": "mesgout",
+          "runtime": "cortex/test-daemon"
+        }
+      }
+    },
+    {
+      "name": "job",
+      "title": "job input",
+      "description": "use name other than input ...",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "routing": {
+        "all": {
+          "action": "jobGood",
+          "output": "mesgout",
+          "runtime": "cortex/test-job"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mesgout",
+      "title": "mesgout",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "actions": [
+    {
+      "name": "daemonGood",
+      "type": "daemon"
+    },
+    {
+      "name": "jobGood",
+      "type": "job"
+    }
+  ],
+  "tags": [],
+  "datasets": []
+}

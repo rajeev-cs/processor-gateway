@@ -1,0 +1,63 @@
+{
+  "camel": "1.0.0",
+  "name": "nock-skill",
+  "title": "expect a nock for this skill",
+  "description": "...",
+  "properties": [
+    {
+      "validValues": [],
+      "_id": "5e72d0d6927f303d88a9209d",
+      "name": "daemon.method",
+      "title": "Daemon method",
+      "description": "method",
+      "required": true,
+      "type": "string",
+      "defaultValue": "POST",
+      "secure": false
+    },
+    {
+      "validValues": [],
+      "_id": "5e72d0d6927f3045e7a9209c",
+      "name": "daemon.path",
+      "title": "Daemon path",
+      "description": "path",
+      "required": true,
+      "type": "string",
+      "defaultValue": "myapi",
+      "secure": false
+    }
+  ],
+  "inputs": [
+    {
+      "_id": "5e72d0d6927f3011b1a9209e",
+      "name": "input",
+      "title": "input",
+      "routing": {
+        "all": {
+          "action": "nock-good",
+          "output": "output",
+          "runtime": "cortex/daemon"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "_id": "5e72d0d6927f30d37ca9209f",
+      "name": "output",
+      "title": "response"
+    }
+  ],
+  "_projectId": "cogscale",
+  "tags": [],
+  "datasets": [],
+  "actions": [
+    {
+      "name": "nock-good",
+      "type": "daemon"
+    }],
+
+  "_createdAt": "2020-03-19T01:54:30.228Z",
+  "_updatedAt": "2020-03-19T01:54:30.228Z",
+  "_version": 1
+}

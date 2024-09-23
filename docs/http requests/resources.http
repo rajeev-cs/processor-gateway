@@ -1,0 +1,278 @@
+### list agents
+GET {{host}}/internal/resources/agents
+Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+### list skills
+GET {{host}}/internal/resources/skills
+Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+### clear cache
+POST {{host}}/internal/clearcache
+Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+### update skill
+POST {{host}}/internal/resources/skills
+Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+{
+    "apiVersion": "fabric.cognitivescale.com/v1",
+    "kind": "Skill",
+    "metadata": {
+        "creationTimestamp": "2022-10-31T08:12:28Z",
+        "generation": 3,
+        "labels": {
+            "fabric.project": "composetests",
+            "fabric.skill-version": "834"
+        },
+        "name": "composetests-odd-model",
+        "namespace": "cortex-compute",
+        "resourceVersion": "509201736",
+        "uid": "d86f6713-a7f1-437b-87f8-70000e11373b"
+    },
+    "spec": {
+        "actions": [
+            {
+                "k8sResources": [],
+                "name": "splitteraction",
+                "podSpec": {
+                    "containers": [
+                        {
+                            "env": [],
+                            "image": "private-registry.dci-dev.dev-eks.insights.ai/splitteraction:1667203996",
+                            "imagePullPolicy": "IfNotPresent",
+                            "name": "splitteraction",
+                            "ports": [
+                                {
+                                    "containerPort": 5000,
+                                    "protocol": "TCP"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "port": 5000,
+                "scale": 1,
+                "type": "daemon"
+            }
+        ],
+        "description": "...",
+        "inputs": [
+            {
+                "name": "input",
+                "routing": {
+                    "all": {
+                        "action": "splitterAction",
+                        "output": "output",
+                        "runtime": "cortex/daemons"
+                    }
+                },
+                "title": "input"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "output",
+                "title": "response"
+            }
+        ],
+        "properties": [
+            {
+                "defaultValue": "\"POST\"",
+                "description": "method",
+                "name": "daemon.method",
+                "required": true,
+                "secure": false,
+                "title": "Daemon method",
+                "type": "string"
+            },
+            {
+                "defaultValue": "\"modelOdd\"",
+                "description": "path",
+                "name": "daemon.path",
+                "required": true,
+                "secure": false,
+                "title": "Daemon path",
+                "type": "string"
+            },
+            {
+                "defaultValue": "5000",
+                "description": "port",
+                "name": "daemon.port",
+                "required": true,
+                "secure": false,
+                "title": "Daemon port",
+                "type": "number"
+            }
+        ],
+        "publish": false,
+        "title": "odd even skill"
+    },
+    "status": {
+        "actionStatus": [
+            {
+                "name": "splitteraction",
+                "state": "Ready (1/1)"
+            }
+        ],
+        "resources": [
+            {
+                "kind": "Deployment",
+                "name": "composetests-odd-model-splitteraction",
+                "version": "apps/v1"
+            },
+            {
+                "kind": "Service",
+                "name": "composetests-odd-model-splitteraction",
+                "version": "v1"
+            }
+        ]
+    }
+}
+
+
+### Delete skill resource
+DELETE {{host}}/internal/resources/skills
+Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+{
+    "apiVersion": "fabric.cognitivescale.com/v1",
+    "kind": "Skill",
+    "metadata": {
+        "creationTimestamp": "2022-10-31T08:12:28Z",
+        "generation": 3,
+        "labels": {
+            "fabric.project": "composetests",
+            "fabric.skill-version": "834"
+        },
+        "name": "composetests-odd-model",
+        "namespace": "cortex-compute",
+        "resourceVersion": "509201736",
+        "uid": "d86f6713-a7f1-437b-87f8-70000e11373b"
+    }
+}
+
+### update agent
+POST {{host}}/internal/resources/agents
+Content-Type: application/json
+
+{
+  "apiVersion": "fabric.cognitivescale.com/v1",
+  "kind": "Agent",
+  "metadata": {
+    "creationTimestamp": "2022-08-23T00:25:27Z",
+    "generation": 4,
+    "labels": {
+      "fabric.agent-version": "5",
+      "fabric.project": "johan"
+    },
+    "name": "johan-simple-daemon",
+    "namespace": "cortex-compute",
+    "resourceVersion": "479774057",
+    "uid": "74335438-43b6-4112-8319-0e85ebd8f284"
+  },
+  "spec": {
+    "description": "Agent pattern used for agent-invokes",
+    "inputs": [
+      {
+        "name": "input",
+        "output": "input",
+        "signalId": "49c958a2-0cbf-4373-93b9-fbf7fa5b435c",
+        "signalType": "Service",
+        "title": "Text"
+      }
+    ],
+    "mappings": [
+      {
+        "from": {
+          "input": {
+            "signalId": "49c958a2-0cbf-4373-93b9-fbf7fa5b435c"
+          }
+        },
+        "rules": [],
+        "to": {
+          "skill": {
+            "input": "input",
+            "refId": "292edb52-f300-4d11-823d-eea67308b1b9"
+          }
+        }
+      },
+      {
+        "from": {
+          "skill": {
+            "output": "output",
+            "refId": "292edb52-f300-4d11-823d-eea67308b1b9"
+          }
+        },
+        "rules": [],
+        "to": {
+          "output": {
+            "signalId": "e522cb1a-b3f6-45e2-970a-2a4867933174"
+          }
+        }
+      }
+    ],
+    "outputs": [
+      {
+        "name": "input",
+        "signalId": "e522cb1a-b3f6-45e2-970a-2a4867933174",
+        "signalType": "Service",
+        "title": "output2"
+      }
+    ],
+    "properties": [],
+    "publish": false,
+    "skills": [
+      {
+        "properties": [
+          {
+            "name": "daemon.method",
+            "value": "\"POST\""
+          },
+          {
+            "name": "daemon.path",
+            "value": "\"myapi\""
+          },
+          {
+            "name": "daemon.port",
+            "value": "8000"
+          },
+          {
+            "name": "outputName",
+            "value": "\"\""
+          }
+        ],
+        "refId": "292edb52-f300-4d11-823d-eea67308b1b9",
+        "skillName": "patternDaemon",
+        "title": "Skill 1"
+      }
+    ],
+    "snapshotId": "tip-snapshot",
+    "title": "Simple agent with a single daemon skill"
+  }
+}
+
+### delete agent
+DELETE {{host}}/internal/resources/agents
+Content-Type: application/json
+
+{
+  "apiVersion": "fabric.cognitivescale.com/v1",
+  "kind": "Agent",
+  "metadata": {
+    "creationTimestamp": "2022-08-23T00:25:27Z",
+    "generation": 4,
+    "labels": {
+      "fabric.agent-version": "5",
+      "fabric.project": "johan"
+    },
+    "name": "johan-simple-daemon",
+    "namespace": "cortex-compute",
+    "resourceVersion": "479774057",
+    "uid": "74335438-43b6-4112-8319-0e85ebd8f284"
+  }
+}

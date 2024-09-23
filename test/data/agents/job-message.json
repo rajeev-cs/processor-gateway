@@ -1,0 +1,112 @@
+{
+  "camel": "1.0.0",
+  "name": "job-message",
+  "title": "Agent with a job that returns multiple messages",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "agent-input",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "title": "text",
+          "type": "string"
+        }
+      ],
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "output",
+      "signalId": "agent-output",
+      "mode": "stats",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "title": "text",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "properties": [
+        {
+          "name": "script",
+          "value": "async function invoke (payload, token, activationId, channelId, sessionId, properties, apiEndPoint) {\n    let cnt = 0;\n    try {\n        await Promise.all((payload?.data ?? []).map(async (d) => {\n            const res = await got.post(`${apiEndpoint}/internal/messages/${activationId}/${channelId}/output`, {\n                headers: { Authorization: `bearer ${token}`},\n                json: d,\n                responseType: 'json'\n            })\n            cnt += 1;\n        }));\n        return {\n            success: true,\n            message: `processed ${cnt} records`\n        };\n\n    } catch (err) {\n        return {\n            success: false,\n            message: err.message\n        };\n    }\n}\n"
+        },
+        {
+          "name": "async",
+          "value": true
+        }
+      ],
+      "skillName": "datajob-skill",
+      "refId": "message-job"
+    },
+    {
+      "properties": [],
+      "skillName": "good-skill",
+      "refId": "skill1"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "agent-input"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "message-job",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "message-job",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "skill1",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "skill1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "agent-output"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "properties": [],
+  "_valid": true,
+  "_projectId": "cogscale",
+  "_createdAt": "2020-03-19T01:54:31.965Z",
+  "_updatedAt": "2020-03-19T01:54:31.965Z",
+  "_version": 1
+}

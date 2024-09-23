@@ -1,0 +1,42 @@
+@startuml
+title Fabric services
+rectangle "Python lib" as sdk
+rectangle "Cortex CLI" as cli
+rectangle "Console" as browser
+rectangle "APIs REST/GQL" as rest
+rectangle "Istio Gateway" as istio
+sdk -down-> istio
+cli -down-> istio
+browser -down-> istio
+rest -down-> istio
+rectangle "Accounts" as accounts
+rectangle "AMP Api" as amp
+rectangle "Auth Oidc" as auth
+rectangle "Catalog" as catalog
+rectangle "Connections" as connection
+rectangle "Console" as console
+rectangle dex as dex
+rectangle "Gateway" as gateway
+rectangle "LDAP/GITHUB" as ldap
+rectangle "Models" as models
+rectangle "Operator" as op
+database redis
+database mongo
+database "Minio/S3" as blob
+
+istio -right-> auth : JWT/Auth
+istio -> dex : OIDC
+auth -> dex
+dex -> ldap
+istio -down-> accounts
+istio -down-> catalog
+istio -down-> gateway
+istio -down-> models
+istio -down-> connection
+istio -down-> amp
+istio -down-> console
+gateway <-down-> op : watch/callback
+catalog -[hidden]-> mongo
+catalog -[hidden]-> redis
+catalog -[hidden]-> blob
+@enduml

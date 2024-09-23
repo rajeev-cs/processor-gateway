@@ -1,0 +1,15 @@
+###
+POST http://localhost:4444/fabric/v4/projects/johan/skillinvoke/success-job-skill/inputs/input
+Content-Type: application/json
+Authorization: bearer eyJraWQiOiJfM1g1aWpvcGdTSm0tSmVmdWJQenh5RS1XWGw3UzJqSVZDLXRNWnNiRG9BIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjA0Njg1NDk2LCJleHAiOjE2MDQ3NzE4OTYsInN1YiI6IjM3MGY3ZWM2LTQ2NmYtNGEzNi1iYjVmLWJjMjRmMzRkYTIxYiIsImF1ZCI6ImNvcnRleCIsImlzcyI6ImNvZ25pdGl2ZXNjYWxlLmNvbSJ9.EwFYL18rSUYtTu4eW6FJVGoNZ4ww31B2vIlQQpaXy8C1Fn-xzwJ92Ix3yi9hkIUnuUC6qyMFSfsXxztOLNjPDQ
+
+{ "properties":{},"payload": { "text": "hello" } }
+
+> {%
+client.global.set("activationId", response.body.activationId);
+%}
+
+###
+GET http://localhost:4444/fabric/v4/projects/johan/activations/{{activationId}}
+Content-Type: application/json
+Authorization: bearer eyJraWQiOiJfM1g1aWpvcGdTSm0tSmVmdWJQenh5RS1XWGw3UzJqSVZDLXRNWnNiRG9BIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjA0Njg1NDk2LCJleHAiOjE2MDQ3NzE4OTYsInN1YiI6IjM3MGY3ZWM2LTQ2NmYtNGEzNi1iYjVmLWJjMjRmMzRkYTIxYiIsImF1ZCI6ImNvcnRleCIsImlzcyI6ImNvZ25pdGl2ZXNjYWxlLmNvbSJ9.EwFYL18rSUYtTu4eW6FJVGoNZ4ww31B2vIlQQpaXy8C1Fn-xzwJ92Ix3yi9hkIUnuUC6qyMFSfsXxztOLNjPDQ

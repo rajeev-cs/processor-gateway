@@ -1,0 +1,32 @@
+{
+  "name": "myAgentConnector",
+  "type": "kafka",
+  "kafka": {
+    "config": {
+        "clientId": "gateway",
+        "brokers": ["192.168.39.138:30942"]
+    },
+
+    "groupId": "gateway",
+    "inTopic": "myagent-in",
+    "outTopic": "myagent-out",
+    "format": "JSON"
+# declare in confige
+    "agentName"
+    "project"
+    "input"
+  },
+  "pat": {
+    "jwk": {
+      "crv": "Ed25519",
+      "x": "hgLTjmVDLr4L-_kVTIAo5_2-VLxVmhHoFR5dZPYZwoU",
+      "d": "Ui6FW95O02GUg4E0ow54ZCNUkZGTYGPWENbjgt-YOJ4",
+      "kty": "OKP",
+      "kid": "Wh8iRyDZh7ViepiBezZt215j6RIe5pGXHJlTDJZkV9w"
+    },
+    "issuer": "cognitivescale.com",
+    "audience": "cortex",
+    "username": "27b526b2-fe8f-4519-b5e9-953f666abb9a",
+    "url": "https://192.168.39.198:32427"
+  }
+}

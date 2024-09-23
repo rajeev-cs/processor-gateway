@@ -1,0 +1,86 @@
+# Source: cortex-auth/templates/auth-oidc-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cortex-processor-gateway
+  namespace: cortex
+  labels:
+    app: cortex-processor-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: cortex-processor-gateway
+      app: cortex-processor-gateway
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: cortex-processor-gateway
+        role: cortex-processor-gateway
+        app.kubernetes.io/name: cortex-processor-gateway
+    spec:
+      imagePullSecrets:
+        - name: docker-login
+      containers:
+        - name: cortex-processor-gateway
+          image: "c12e/cortex-processor-gateway"
+          imagePullPolicy: IfNotPresent
+          ports:
+          - name: http
+            containerPort: 4444
+          env:
+            - name: DEBUG
+              value: "XXXX"
+            - name: AGENT_LOG_PAYLOAD
+              value: 'true'
+            - name: AGENT_LOG_PROPERTIES
+              value: 'true'
+            - name: CORTEX_API_ENDPOINT
+              value: http://cortex-internal.cortex.svc.cluster.local
+            - name: FEATURE_AGENT_WORKERS
+              value: 'false'
+            - name: LOG_CONSOLE_ONLY
+              value: "true"
+            - name: LOG_DISABLE_AUDIT
+              value: "true"
+            - name: LOG_LEVEL
+              value: "debug"
+            - name: FEATURE_DISABLE_CACHE
+              value: "false"
+            - name: MONGODB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: cortex-mongodb
+                  key: user
+            - name: MONGODB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cortex-mongodb
+                  key: mongodb-passwords
+            - name: MONGODB_URI
+#              value:  mongodb://$(MONGODB_USERNAME):$(MONGODB_PASSWORD)@cortex-mongodb-headless.cortex.svc.cluster.local:27017/cortex_services?authSource=cortex_services&replicaSet=rs0&readPreference=primaryPreferred&serverSelectionTimeoutMS=500
+              value:  mongodb://cortex-mongodb.cortex.svc.cluster.local:27017/cortex_services
+            - name: PROFILE_ENABLED
+              value: "false"
+            - name: PROFILE_INTERVAL
+              value: "10"
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cortex-redis-secret
+                  key: redis-password
+            - name: REDIS_URI
+#              value: "redis://:$(REDIS_PASSWORD)@cortex-redis-master-0.cortex-redis-headless.cortex.svc.cluster.local:6379"
+              value: "redis://:$(REDIS_PASSWORD)@cortex-redis.cortex.svc.cluster.local:6379"
+          volumeMounts:
+            - mountPath: /app/config.d
+              name: connector-configs
+      volumes:
+        - name: connector-configs
+          configMap:
+            optional: true
+            name: gateway-connector-configs

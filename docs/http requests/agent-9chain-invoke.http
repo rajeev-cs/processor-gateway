@@ -1,0 +1,30 @@
+## Agent invoke
+POST {{host}}/fabric/v4/projects/{{projectId}}/agentinvoke/chain_9_agent/services/input
+Content-Type: application/json
+Authorization: bearer {{jwt}}
+
+{ "payload" : {"text": "hello"}}
+
+> {%
+client.global.set("activationId", response.body.activationId);
+%}
+
+### List activations
+GET {{host}}/fabric/v4/projects/{{projectId}}/activations?agentName=chain_9_agent
+Content-Type: application/json
+Authorization: bearer {{jwt}}
+
+#### List activations with filter
+#GET {{host}}/fabric/v4/projects/{{projectId}}/activations?agentName=daemon-agent&limit=20&skip=1000000&sort=%7B%22start%22%3A-1%7D&filter=%7B%22status%22%3A+%22ERROR%22%7D
+#Content-Type: application/json
+#Authorization: bearer {{jwt}}
+
+### Get activation verbose
+GET {{host}}/fabric/v4/projects/{{projectId}}/activations/{{activationId}}?verbose=0
+Content-Type: application/json
+Authorization: bearer {{jwt}}
+
+#### Generate diagram
+#GET {{host}}/fabric/v4/projects/cogscale/agentinvoke/cortex%2Fbusyboxagent/services/input/diagram
+#Content-Type: application/json
+#Authorization: bearer {{jwt}}

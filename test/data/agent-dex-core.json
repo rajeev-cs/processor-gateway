@@ -1,0 +1,646 @@
+{
+  "_id": "60928e5ba2b8f94c4b5756ef",
+  "camel": "1.0.0",
+  "name": "dexcoreflow-374ba",
+  "title": "dex_core_flow",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "predict",
+      "title": "request",
+      "signalId": "7e6095b2-7a62-42d5-b1ac-1ba15f40206d",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "predict"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "predict",
+      "title": "response",
+      "signalId": "f2bd6128-d04b-4a1a-bcfa-b40874f3e24c",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f94ac65756f0",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f953595756f1",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f9057e5756f2",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f99db55756f3",
+          "name": "intermediate_data_connection_name",
+          "value": "mongo_db_connection"
+        },
+        {
+          "_id": "60928e5ba2b8f9f1aa5756f4",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "pre validate",
+      "description": "Returns Preprocess Claim",
+      "refId": "6c9ed98e-617a-43ad-9e8a-cde2517cac94",
+      "_layout": {
+        "cellIndex": 74
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f9db6d5756f5",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9617f5756f6",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f9c38e5756f7",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f925a05756f8",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "save claim info",
+      "description": "Save claim info to db",
+      "refId": "b470669c-d10a-4dc0-b840-b88d3243d01f",
+      "_layout": {
+        "cellIndex": 78
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f954995756f9",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9fed45756fa",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f9e8de5756fb",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f94ec65756fc",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "Preprocess claim",
+      "description": "Returns preprocess claim object",
+      "refId": "52e155c6-1712-441e-8a6c-035e90e60eae",
+      "_layout": {
+        "cellIndex": 82
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f968395756fd",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9a5cf5756fe",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f922d95756ff",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f9143d575700",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "fetch NPPES data",
+      "description": "Returns NPPES data",
+      "refId": "6b7a42b3-7830-460c-9794-c17eda3e1c7a",
+      "_layout": {
+        "cellIndex": 85
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f9849e575701",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f90cd2575702",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f94564575703",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f9b5fd575704",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "consolidate NPPES data",
+      "description": "Returns consolidate NPPES data",
+      "refId": "31b5c8a0-e260-4a8f-8c9c-811f0cbda2bf",
+      "_layout": {
+        "cellIndex": 89
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f9621e575705",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9d892575706",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f96c2a575707",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f930ef575708",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "save claim info",
+      "description": "Save claim info to db",
+      "refId": "abc2839a-be20-44ff-b09b-161f4eaf1567",
+      "_layout": {
+        "cellIndex": 92
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f90758575709",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9908257570a",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f9d97557570b",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f9689457570c",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "Ben Model",
+      "description": "Returns ben model recommendations",
+      "refId": "cbfadf4b-0a04-443b-a749-1fdab651dae4",
+      "_layout": {
+        "cellIndex": 95
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f96f5f57570d",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9b38457570e",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f97e5057570f",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f932c4575710",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "dup model",
+      "description": "Returns dup model predictions",
+      "refId": "fddc83a6-2501-41d3-969f-b3070c11b5f8",
+      "_layout": {
+        "cellIndex": 96
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f94a6d575711",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f94d2d575712",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f98de7575713",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f949e5575714",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "HMO Model",
+      "description": "Returns hmo model recommendations",
+      "refId": "edfee729-f23f-450a-ab61-b27a8931d35f",
+      "_layout": {
+        "cellIndex": 97
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f9147c575715",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9ec8b575716",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f988eb575717",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f9242c575718",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        },
+        {
+          "_id": "60928e5ba2b8f93f4d575719",
+          "name": "merge.count",
+          "value": "2"
+        },
+        {
+          "_id": "60928e5ba2b8f952b657571a",
+          "name": "merge.property",
+          "value": "hmodup"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "consolidate results",
+      "description": "Returns consolidated results",
+      "refId": "818704c1-c6e6-4334-b3b5-b87189a6191a",
+      "_layout": {
+        "cellIndex": 100
+      }
+    },
+    {
+      "properties": [
+        {
+          "_id": "60928e5ba2b8f9110d57571b",
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "_id": "60928e5ba2b8f9e65b57571c",
+          "name": "daemon.path",
+          "value": "invoke"
+        },
+        {
+          "_id": "60928e5ba2b8f9e8dd57571d",
+          "name": "daemon.port",
+          "value": "5000"
+        },
+        {
+          "_id": "60928e5ba2b8f919cf57571e",
+          "name": "intermediate-db-uri",
+          "value": "mongodb://fake-db"
+        }
+      ],
+      "skillName": "daemonGood",
+      "title": "get reference data",
+      "description": "get reference data",
+      "refId": "0e1e9d64-ec7d-4890-aae0-d03172f1fe18",
+      "_layout": {
+        "cellIndex": 86
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "7e6095b2-7a62-42d5-b1ac-1ba15f40206d"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "6c9ed98e-617a-43ad-9e8a-cde2517cac94",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "6c9ed98e-617a-43ad-9e8a-cde2517cac94",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "b470669c-d10a-4dc0-b840-b88d3243d01f",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "b470669c-d10a-4dc0-b840-b88d3243d01f",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "52e155c6-1712-441e-8a6c-035e90e60eae",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "52e155c6-1712-441e-8a6c-035e90e60eae",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "6b7a42b3-7830-460c-9794-c17eda3e1c7a",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "6b7a42b3-7830-460c-9794-c17eda3e1c7a",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "31b5c8a0-e260-4a8f-8c9c-811f0cbda2bf",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "31b5c8a0-e260-4a8f-8c9c-811f0cbda2bf",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "abc2839a-be20-44ff-b09b-161f4eaf1567",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "abc2839a-be20-44ff-b09b-161f4eaf1567",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "cbfadf4b-0a04-443b-a749-1fdab651dae4",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "abc2839a-be20-44ff-b09b-161f4eaf1567",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "fddc83a6-2501-41d3-969f-b3070c11b5f8",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "abc2839a-be20-44ff-b09b-161f4eaf1567",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "edfee729-f23f-450a-ab61-b27a8931d35f",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "fddc83a6-2501-41d3-969f-b3070c11b5f8",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "818704c1-c6e6-4334-b3b5-b87189a6191a",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "edfee729-f23f-450a-ab61-b27a8931d35f",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "818704c1-c6e6-4334-b3b5-b87189a6191a",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "cbfadf4b-0a04-443b-a749-1fdab651dae4",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "f2bd6128-d04b-4a1a-bcfa-b40874f3e24c"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "31b5c8a0-e260-4a8f-8c9c-811f0cbda2bf",
+          "output": "dummy"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "f2bd6128-d04b-4a1a-bcfa-b40874f3e24c"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "818704c1-c6e6-4334-b3b5-b87189a6191a",
+          "output": "dummy"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "f2bd6128-d04b-4a1a-bcfa-b40874f3e24c"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "52e155c6-1712-441e-8a6c-035e90e60eae",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "0e1e9d64-ec7d-4890-aae0-d03172f1fe18",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "0e1e9d64-ec7d-4890-aae0-d03172f1fe18",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "31b5c8a0-e260-4a8f-8c9c-811f0cbda2bf",
+          "input": "request"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "818704c1-c6e6-4334-b3b5-b87189a6191a",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "f2bd6128-d04b-4a1a-bcfa-b40874f3e24c"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "_projectId": "dexflow-47048",
+  "_valid": true,
+  "properties": [],
+  "_createdAt": "2021-05-05T12:23:55.091Z",
+  "_updatedAt": "2021-05-05T12:23:55.091Z",
+  "_version": 43
+}

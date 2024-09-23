@@ -1,0 +1,43 @@
+@startuml
+Title Agent invoke sequence
+header Execution sequence for an agent/skill invoke
+actor Request as req
+participant "Fabric Controller" as ctrl
+req -> "GW Service" as gw: Invoke agent||skill
+activate gw
+gw -> "Synapse" as syn: Create Activation
+syn -> gw: Response with ActivationID
+gw -> req
+activate syn
+syn --> "Activation Record" as act: Activation PENDING
+loop For Each Skill
+syn --> act: Transition STARTED
+syn -> "Skill" as skill: Skill Activation
+alt DAEMON case
+skill -> "Action LIB" as action
+action <-> "Kubernetes"as k8s: invoke service
+action -> skill
+else JOB case
+skill -> action: invoke
+action <--> k8s: Create TASK CR
+action --> act: Store TASKID\non Transition
+action -> skill: <return>
+else REST/OpenApi case
+skill -> action: invoke
+action <-> "External Service" as ext: HTTP Request
+action -> skill: response
+end
+skill -> syn: Skill Response
+syn --> act: Transition DONE
+end
+syn --> act : Activation COMPLETE
+deactivate syn
+== TASK Callback ==
+ctrl -> gw: invoke callback with\nTASKID
+gw <--> act: fetch activation
+gw -> syn: invoke next skill
+ref over syn
+    For EACH Skill loop
+end ref
+deactivate gw
+@enduml

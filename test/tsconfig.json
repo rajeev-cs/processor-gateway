@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "isolatedModules": false,
+    "emitDecoratorMetadata":  true,
+    "typeRoots" : [
+      "../node_modules/@types"
+    ]
+  },
+  "exclude": [
+    "../node_modules",
+ ],
+  "include": [
+    "../lib",
+    "."
+  ],
+  "ts-node": {
+    "swc": true
+  }
+}

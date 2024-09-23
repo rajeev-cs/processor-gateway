@@ -1,0 +1,22 @@
+# Source: cortex-auth/templates/auth-oidc-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: cortex-processor-gateway
+  name: cortex-processor-gateway
+  namespace: cortex
+spec:
+  ports:
+    - name: http-processor-gateway
+      port: 4444
+      protocol: TCP
+      targetPort: 4444
+    - name: http-gateway-debug
+      port: 9229
+      protocol: TCP
+      targetPort: 9229
+  selector:
+    app: cortex-processor-gateway
+    role: cortex-processor-gateway
+  type: ClusterIP

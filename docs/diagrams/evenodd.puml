@@ -1,0 +1,15 @@
+@startuml
+circle input
+circle "output: {..}" as output
+node Hasher as h
+node Even as e
+node Odd as o
+node Writer as w
+input -> h
+h ..> output: '<= zero'
+h -down-> e: even
+h -down-> o: odd
+e -down-> w
+o -down-> w
+w -> output: output
+@enduml

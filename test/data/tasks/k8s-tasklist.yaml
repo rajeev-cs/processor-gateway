@@ -1,0 +1,533 @@
+apiVersion: v1
+items:
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T19:47:19Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    annotations:
+      fabric.actionName: jobAction1
+      fabric.skillName: jobSkill
+    labels:
+      fabric.activationId: 483687f6-52ac-4eae-aaa4-17fd9359bc7d
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T19:47:19Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T19:47:28Z"
+    name: tester-jobskill-jobskill-5wqhc
+    namespace: cortex
+    resourceVersion: "133273"
+    uid: e8807344-bc6c-4d2b-acdf-ba8c8c42755f
+  spec:
+    actionName: jobskill
+    activationId: 483687f6-52ac-4eae-aaa4-17fd9359bc7d
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/483687f6-52ac-4eae-aaa4-17fd9359bc7d/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"483687f6-52ac-4eae-aaa4-17fd9359bc7d","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"483687f6-52ac-4eae-aaa4-17fd9359bc7d","skillName":"tester-jobskill","timestamp":1649965639741,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    endTime: "2022-04-14T19:47:28Z"
+    startTime: "2022-04-14T19:47:19Z"
+    state: Completed
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T19:47:21Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    labels:
+      fabric.actionName: jobAction1
+      fabric.activationId: 439b82e0-ecf9-402c-a2c9-599ab6c45bff
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.skillName: jobSkill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T19:47:21Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T19:47:29Z"
+    name: tester-jobskill-jobskill-dkqrk
+    namespace: cortex
+    resourceVersion: "133281"
+    uid: a0fb3aeb-9442-447f-a09c-189e6e9a6b95
+  spec:
+    actionName: jobskill
+    activationId: 439b82e0-ecf9-402c-a2c9-599ab6c45bff
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/439b82e0-ecf9-402c-a2c9-599ab6c45bff/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"439b82e0-ecf9-402c-a2c9-599ab6c45bff","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"439b82e0-ecf9-402c-a2c9-599ab6c45bff","skillName":"tester-jobskill","timestamp":1649965641420,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    endTime: "2022-04-14T19:47:29Z"
+    startTime: "2022-04-14T19:47:21Z"
+    state: Completed
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T19:47:22Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    labels:
+      fabric.actionName: jobAction
+      fabric.activationId: 2a511bb1-eba9-4d0e-8e25-5afa4143de43
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.skillName: jobSkill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T19:47:22Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T19:47:31Z"
+    name: tester-jobskill-jobskill-kj6dd
+    namespace: cortex
+    resourceVersion: "133295"
+    uid: ffd2c25a-32b5-43c3-92db-02a0c2893e81
+  spec:
+    actionName: jobskill
+    activationId: 2a511bb1-eba9-4d0e-8e25-5afa4143de43
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/2a511bb1-eba9-4d0e-8e25-5afa4143de43/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"2a511bb1-eba9-4d0e-8e25-5afa4143de43","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"2a511bb1-eba9-4d0e-8e25-5afa4143de43","skillName":"tester-jobskill","timestamp":1649965642643,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    endTime: "2022-04-14T19:47:31Z"
+    startTime: "2022-04-14T19:47:22Z"
+    state: Completed
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T21:25:35Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    labels:
+      fabric.actionName: jobAction
+      fabric.activationId: d68f539b-dbaf-451d-bea3-63d78e158627
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.skillName: jobSkill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T21:25:35Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T21:25:44Z"
+    name: tester-jobskill-jobskill-p7nrl
+    namespace: cortex
+    resourceVersion: "148269"
+    uid: b934775c-9ea8-442f-ac46-fc715d2ba136
+  spec:
+    actionName: jobskill
+    activationId: d68f539b-dbaf-451d-bea3-63d78e158627
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/d68f539b-dbaf-451d-bea3-63d78e158627/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"d68f539b-dbaf-451d-bea3-63d78e158627","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"d68f539b-dbaf-451d-bea3-63d78e158627","skillName":"tester-jobskill","timestamp":1649971535831,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    endTime: "2022-04-14T21:25:44Z"
+    startTime: "2022-04-14T21:25:35Z"
+    state: Completed
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T19:47:23Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    labels:
+      fabric.actionName: jobAction
+      fabric.activationId: 57e30665-1c67-4324-ba19-ff22d3e7639e
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.skillName: jobSkill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T19:47:23Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T19:47:32Z"
+    name: tester-jobskill-jobskill-sl6zs
+    namespace: cortex
+    resourceVersion: "133304"
+    uid: 3de66278-52ac-4521-a3bb-102604b45457
+  spec:
+    actionName: jobskill
+    activationId: 57e30665-1c67-4324-ba19-ff22d3e7639e
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/57e30665-1c67-4324-ba19-ff22d3e7639e/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"57e30665-1c67-4324-ba19-ff22d3e7639e","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"57e30665-1c67-4324-ba19-ff22d3e7639e","skillName":"tester-jobskill","timestamp":1649965643871,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    endTime: "2022-04-14T19:47:32Z"
+    startTime: "2022-04-14T19:47:23Z"
+    state: Error
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    creationTimestamp: "2022-04-14T21:15:31Z"
+    finalizers:
+    - cleanup.finalizers.taskpools.fabric.cognitivescale.com
+    generateName: tester-jobskill-jobskill-
+    generation: 2
+    labels:
+      fabric.actionName: jobAction
+      fabric.activationId: f0a2ab05-d753-45cd-b67e-8dbb4d6e897a
+      fabric.channelId: output
+      fabric.jobtype: invoke
+      fabric.project: tester
+      fabric.serviceName: tester-jobskill-jobskill
+      fabric.skillName: jobSkill
+      fabric.source: gateway
+    managedFields:
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:generateName: {}
+          f:labels:
+            .: {}
+            f:fabric.actionName: {}
+            f:fabric.activationId: {}
+            f:fabric.channelId: {}
+            f:fabric.jobtype: {}
+            f:fabric.project: {}
+            f:fabric.serviceName: {}
+            f:fabric.skillName: {}
+            f:fabric.source: {}
+        f:spec:
+          .: {}
+          f:actionName: {}
+          f:activationId: {}
+          f:callbackUrl: {}
+          f:cortexUrl: {}
+          f:payload: {}
+          f:skillName: {}
+          f:skillOutputName: {}
+          f:taskPoolName: {}
+          f:token: {}
+      manager: 'got (https:'
+      operation: Update
+      time: "2022-04-14T21:15:31Z"
+    - apiVersion: fabric.cognitivescale.com/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:finalizers:
+            .: {}
+            v:"cleanup.finalizers.taskpools.fabric.cognitivescale.com": {}
+        f:spec:
+          f:resources: {}
+        f:status:
+          .: {}
+          f:endTime: {}
+          f:startTime: {}
+          f:state: {}
+      manager: manager
+      operation: Update
+      time: "2022-04-14T21:15:40Z"
+    name: tester-jobskill-jobskill-x4n9x
+    namespace: cortex
+    resourceVersion: "146808"
+    uid: eaed53c2-5ea3-4092-b9a4-7b0ad0bf9e5d
+  spec:
+    actionName: jobskill
+    activationId: f0a2ab05-d753-45cd-b67e-8dbb4d6e897a
+    callbackUrl: http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/f0a2ab05-d753-45cd-b67e-8dbb4d6e897a/output
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    payload: '{"activationId":"f0a2ab05-d753-45cd-b67e-8dbb4d6e897a","agentName":"","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","channelId":"output","outputName":"output","payload":{},"projectId":"tester","properties":{"fail":false,"genloglines":false,"sendMessage":false},"sessionId":"f0a2ab05-d753-45cd-b67e-8dbb4d6e897a","skillName":"tester-jobskill","timestamp":1649970931731,"token":"eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA"}'
+    resources: {}
+    skillName: tester-jobskill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiItckV2by10T2dIYlVuNUViLVN3U01rSUJNQlVsRk5tczFmRUs5Z3BWSHF3IiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjQ5MzM4MTM4LCJleHAiOjE2NDk0MjQ1MzgsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.oM3DqGO926Q0MNuBH6GojJQfPK_jAee0TgasTPUs0LA_szLUF1sy6aoSIAAg6cCxhCc0TlIDye8WrnYJ5eQtCA
+  status:
+    startTime: "2022-04-14T21:15:31Z"
+    state: Active
+- apiVersion: fabric.cognitivescale.com/v1
+  kind: Task
+  metadata:
+    annotations:
+      fabric.actionName: invoke
+      fabric.skillName: sys-invoke-skill
+    creationTimestamp: "2022-08-22T13:52:28Z"
+    generation: 1
+    labels:
+      fabric.jobtype: invoke
+      fabric.project: johan
+      fabric.source: gateway
+    name: johan-cf-hourly
+    namespace: cortex-compute
+    resourceVersion: "466974666"
+    uid: 5a66bdf8-a922-41ab-97ad-c5e71ae3935d
+  spec:
+    actionName: invoke
+    cortexUrl: http://cortex-internal.cortex.svc.cluster.local
+    jobTimeout: 0
+    payload: '{"activationId":"0464976e-40e9-4722-8998-1874ed1e3b87","agentName":"catch-finally","apiEndpoint":"http://cortex-internal.cortex.svc.cluster.local","projectId":"johan","timestamp":1661176348654,"token":"eyJraWQiOiJfM1g1aWpvcGdTSm0tSmVmdWJQenh5RS1XWGw3UzJqSVZDLXRNWnNiRG9BIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjYxMDQ1OTg2LCJleHAiOjE2NjExMzIzODYsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.tF4VzOYyjoNAEOBmVFRzCZ5n45Mi-_yMO8ZUUYhLkenEvJTNTKcJuIxC4zAJgC8SSto6s4PI1_1AFuoQmVxGCA","serviceName":"input","scheduleName":"johan-cf-hourly"}'
+    schedule: '@every 1h'
+    skillName: johan-sys-invoke-skill
+    skillOutputName: output
+    taskPoolName: default
+    token: eyJraWQiOiJfM1g1aWpvcGdTSm0tSmVmdWJQenh5RS1XWGw3UzJqSVZDLXRNWnNiRG9BIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjYxMDQ1OTg2LCJleHAiOjE2NjExMzIzODYsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.tF4VzOYyjoNAEOBmVFRzCZ5n45Mi-_yMO8ZUUYhLkenEvJTNTKcJuIxC4zAJgC8SSto6s4PI1_1AFuoQmVxGCA
+  status:
+    startTime: "2022-08-22T13:52:28Z"
+    state: Active
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

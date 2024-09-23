@@ -1,0 +1,169 @@
+{
+  "camel": "1.0.0",
+  "name": "multiple-inputs",
+  "title": "multiple inputs",
+  "tags": [],
+  "properties": [],
+  "inputs": [
+    {
+      "name": "a",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "c7dfbd99-bc21-4af6-91b8-8d31f767ed9e",
+      "output": "a",
+      "signalType": "Service"
+    },
+    {
+      "name": "b",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "8b00e5eb-2f4d-4f9a-863e-db5dbb97f981",
+      "output": "b",
+      "signalType": "Service"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "a",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "93f2d89b-e92c-4e1c-ad6c-2b65933ff138",
+      "signalType": "Service"
+    },
+    {
+      "name": "b",
+      "title": "Text",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "signalId": "da406eae-37cd-4ef9-9564-9dee479a00af",
+      "signalType": "Service"
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "good-skill",
+      "title": "daemon1",
+      "description": "daemon",
+      "refId": "5b9b3cc0-0a8f-455d-b6c6-91dac5c53663",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 67
+      }
+    },
+    {
+      "skillName": "good-skill",
+      "title": "daemon2",
+      "description": "daemon2",
+      "refId": "a641bdec-c37c-4eed-8e17-a8446304639c",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 72
+      }
+    },
+    {
+      "skillName": "cortex/hubblejob",
+      "title": "job",
+      "description": "job",
+      "refId": "a657386a-5dcb-4e06-bb4f-6747b2bcd89b",
+      "properties": [],
+      "_layout": {
+        "cellIndex": 75
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "c7dfbd99-bc21-4af6-91b8-8d31f767ed9e"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "5b9b3cc0-0a8f-455d-b6c6-91dac5c53663",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "5b9b3cc0-0a8f-455d-b6c6-91dac5c53663",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "a641bdec-c37c-4eed-8e17-a8446304639c",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "a641bdec-c37c-4eed-8e17-a8446304639c",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "a657386a-5dcb-4e06-bb4f-6747b2bcd89b",
+          "input": "input1"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "a657386a-5dcb-4e06-bb4f-6747b2bcd89b",
+          "output": "output1"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "93f2d89b-e92c-4e1c-ad6c-2b65933ff138"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "8b00e5eb-2f4d-4f9a-863e-db5dbb97f981"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "5b9b3cc0-0a8f-455d-b6c6-91dac5c53663",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "5b9b3cc0-0a8f-455d-b6c6-91dac5c53663",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "da406eae-37cd-4ef9-9564-9dee479a00af"
+        }
+      },
+      "rules": []
+    }
+  ]
+}

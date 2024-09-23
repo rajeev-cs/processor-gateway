@@ -1,0 +1,35 @@
+{
+  "apiVersion": "fabric.cognitivescale.com/v1",
+  "kind": "Task",
+  "metadata": {
+    "creationTimestamp": "2021-11-23T16:37:49Z",
+    "finalizers": [
+      "cleanup.finalizers.taskpools.fabric.cognitivescale.com"
+    ],
+    "generation": 2,
+    "labels": {
+      "fabric.jobtype": "build-profile",
+      "fabric.project": "cogscale",
+      "fabric.resname": "test1-9e950",
+      "fabric.restype": "ProfileSchema",
+      "fabric.source": "api-service"
+    },
+    "name": "4da2dd49-9467-40fc-955f-a89df88c5194",
+    "namespace": "cortex-compute",
+    "resourceVersion": "311206169",
+    "uid": "d79ebcdf-0d63-4c5b-9799-405e5e4f83e0"
+  },
+  "spec": {
+    "actionName": "amp-cli",
+    "activationId": "4da2dd49-9467-40fc-955f-a89df88c5194",
+    "resources": {},
+    "skillName": "4da2dd49-9467-40fc-955f-a89df88c5194",
+    "taskPoolName": "default",
+    "token": "eyJraWQiOiJfM1g1aWpvcGdTSm0tSmVmdWJQenh5RS1XWGw3UzJqSVZDLXRNWnNiRG9BIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjM3Njg1Mjk3LCJleHAiOjE2Mzc3NzE2OTcsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0.vlKfgoY0DNbPAKRRw2vlAhQG29tLT-lWH36oMuU0JcSEUGA2NyEtUr9OwcubA065G5fT0Mik9GMQSfj6KaHYAQ"
+  },
+  "status": {
+    "endTime": "2021-11-23T16:38:41Z",
+    "startTime": "2021-11-23T16:37:49Z",
+    "state": "Completed"
+  }
+}

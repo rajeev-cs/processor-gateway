@@ -1,0 +1,136 @@
+{
+  "camel": "1.0.0",
+  "name": "branching",
+  "title": "input -> two daemons -> output",
+  "tags": [],
+  "properties": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "Text",
+      "signalId": "d1effc97-9d1a-4d74-9736-71995e9d6893",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "Text",
+      "signalId": "19cba1ba-bbc2-4c04-a57f-5ad69574e2dc",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "daemonGood",
+      "properties": [
+        {
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "name": "daemon.path",
+          "value": "echo"
+        },
+        {
+          "name": "daemon.port",
+          "value": "8000"
+        }
+      ],
+      "title": "First echo",
+      "description": "...",
+      "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+      "_layout": {
+        "cellIndex": 53
+      }
+    },
+    {
+      "skillName": "daemonGood",
+      "properties": [
+        {
+          "name": "daemon.method",
+          "value": "POST"
+        },
+        {
+          "name": "daemon.path",
+          "value": "echo"
+        },
+        {
+          "name": "daemon.port",
+          "value": "8000"
+        }
+      ],
+      "title": "Second echo",
+      "description": "...",
+      "refId": "30311504-9bed-4a12-822c-33444618bea0",
+      "_layout": {
+        "cellIndex": 54
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "d1effc97-9d1a-4d74-9736-71995e9d6893"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "input": "mesgin"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "d1effc97-9d1a-4d74-9736-71995e9d6893"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "30311504-9bed-4a12-822c-33444618bea0",
+          "input": "mesgin"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "30311504-9bed-4a12-822c-33444618bea0",
+          "output": "mesgout"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "19cba1ba-bbc2-4c04-a57f-5ad69574e2dc"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "6697e03c-cca0-4969-bd41-86ce00968455",
+          "output": "mesgout"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "19cba1ba-bbc2-4c04-a57f-5ad69574e2dc"
+        }
+      },
+      "rules": []
+    }
+  ]
+}

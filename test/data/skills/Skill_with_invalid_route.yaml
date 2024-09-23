@@ -1,0 +1,30 @@
+camel: 1.0.0
+name: unittest/route_test_skill
+title: Skill to test properties
+description: Test routing with properties
+inputs:
+  - name: text
+    title: some title
+    parameters:
+      - name: input
+        type: string
+        description: input text
+        required: true
+    routing:
+      all: {}
+      default: {}
+      rules:
+        - match:
+          action: unittest/foo_func
+          output: echoedText
+outputs:
+  - name: echoedText
+    signalId: 55ff3d62-43f8-11e8-a5ce-e31666591bd5
+    parameters:
+      - name: text
+        type: string
+        description: echoed text
+properties:
+  -
+    name: model
+    type: string

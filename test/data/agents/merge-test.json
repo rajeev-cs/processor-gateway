@@ -1,0 +1,147 @@
+{
+  "camel": "1.0.0",
+  "name": "merge-test",
+  "title": "merge-test",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "Text",
+      "signalId": "agent-input",
+      "parameters": {
+        "$ref": "cortex/text"
+      },
+      "output": "input"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "Text",
+      "signalId": "agent-output",
+      "parameters": {
+        "$ref": "cortex/text"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "daemonGood",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skill1"
+    },
+    {
+      "skillName": "daemonGood",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skill2"
+    },
+    {
+      "skillName": "merge",
+      "properties": [
+        {
+          "name": "payloadKey",
+          "value": "response.results"
+        }
+      ],
+      "title": "Merge results",
+      "description": "Merge inputs to a single output.  Only one request is made to downstream skills or outputs.  The payload is returned as an array.",
+      "refId": "merge-skill"
+    },
+    {
+      "skillName": "daemonGood",
+      "properties": [],
+      "title": "busybox daemon",
+      "description": "...",
+      "refId": "good-skill-last"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "agent-input"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skill2",
+          "input": "input"
+        }
+      }
+    },
+    {
+      "from": {
+        "input": {
+          "signalId": "agent-input"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skill1",
+          "input": "input"
+        }
+      }
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skill1",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "merge-skill",
+          "input": "input"
+        }
+      }
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skill2",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "merge-skill",
+          "input": "input"
+        }
+      }
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "good-skill-last",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "agent-output"
+        }
+      }
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "merge-skill",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "good-skill-last",
+          "input": "input"
+        }
+      }
+    }
+  ]
+}

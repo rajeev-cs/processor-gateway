@@ -1,0 +1,17 @@
+@startuml
+title GW Messages
+component "REST Request" as r
+component "Synapse Message" as sm
+component "Activation Record" as as
+component "Skill Activation" as sa
+component "Skill Input Message" as sim
+r -down-> sm
+r -down-> as
+sm -down-> sa : Skill.run()
+sa -down-> sim : Skill.routeInput()
+note as n1
+Quick look at all the message classes
+Considering how to reduce message handling.
+end note
+
+@enduml

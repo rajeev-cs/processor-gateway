@@ -1,0 +1,204 @@
+{
+  "_id": "6124fe394555dd6f05d32658",
+  "camel": "1.0.0",
+  "name": "lollipop-agent-merge",
+  "title": "input->slit->last->output2x",
+  "tags": [],
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "title": "text",
+          "type": "string"
+        }
+      ],
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "output",
+      "mode": "merge",
+      "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443",
+      "parameters": [
+        {
+          "name": "text",
+          "required": true,
+          "title": "text",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "skillName": "skill-split-js",
+      "properties": [
+        {
+          "_id": "6124fe394555dd810cd32659",
+          "name": "skillName",
+          "value": "Split"
+        }
+      ],
+      "title": "Split",
+      "description": "...",
+      "refId": "30ac2139-53b7-4ce8-831c-c8d68930c307",
+      "_layout": {
+        "cellIndex": 68
+      }
+    },
+    {
+      "skillName": "skill-split-js",
+      "properties": [
+        {
+          "_id": "6124fe394555dd1739d3265a",
+          "name": "skillName",
+          "value": "Left"
+        }
+      ],
+      "title": "Left",
+      "description": "...",
+      "refId": "8d9c14c0-b183-48e8-8c12-46b673950e4b",
+      "_layout": {
+        "cellIndex": 71
+      }
+    },
+    {
+      "skillName": "skill-split-js",
+      "properties": [
+        {
+          "_id": "6124fe394555dd3874d3265b",
+          "name": "skillName",
+          "value": "Right"
+        }
+      ],
+      "title": "Right",
+      "description": "...",
+      "refId": "8a777601-5d4c-499c-9ac5-ac0746bd120a",
+      "_layout": {
+        "cellIndex": 72
+      }
+    },
+    {
+      "skillName": "skill-split-js",
+      "properties": [
+        {
+          "_id": "6124fe394555dd1041d3265c",
+          "name": "skillName",
+          "value": "Last"
+        }
+      ],
+      "title": "Last",
+      "description": "...",
+      "refId": "83ea38d9-3f8e-4410-9d74-8d703d8a0cdf",
+      "_layout": {
+        "cellIndex": 75
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "0b4577a2-3b51-4e53-9ee9-89a13bc0ef34"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "30ac2139-53b7-4ce8-831c-c8d68930c307",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "30ac2139-53b7-4ce8-831c-c8d68930c307",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "8d9c14c0-b183-48e8-8c12-46b673950e4b",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "30ac2139-53b7-4ce8-831c-c8d68930c307",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "8a777601-5d4c-499c-9ac5-ac0746bd120a",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "83ea38d9-3f8e-4410-9d74-8d703d8a0cdf",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "a4ac0d98-1b96-4c59-b1e7-4e725de7c443"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "8a777601-5d4c-499c-9ac5-ac0746bd120a",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "83ea38d9-3f8e-4410-9d74-8d703d8a0cdf",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "8d9c14c0-b183-48e8-8c12-46b673950e4b",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "83ea38d9-3f8e-4410-9d74-8d703d8a0cdf",
+          "input": "input"
+        }
+      },
+      "rules": []
+    }
+  ],
+  "properties": [],
+  "_projectId": "johan",
+  "_createdBy": "cortex@example.com",
+  "_valid": true,
+  "_createdAt": "2021-08-24T14:12:09.922Z",
+  "_updatedAt": "2021-08-24T14:12:09.922Z",
+  "_version": 7
+}

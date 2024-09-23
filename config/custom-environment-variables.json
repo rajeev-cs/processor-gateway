@@ -1,0 +1,88 @@
+{
+  "maxListeners": "MAX_LISTENERS",
+  "port": "PORT",
+  "requestLimit": "REQUEST_LIMIT",
+  "mongo": {
+    "uri": "MONGODB_URI",
+    "options": "MONGODB_OPTIONS"
+  },
+  "redis": {
+    "type": "REDIS_TYPE",
+    "options": {
+      "sentinels": "REDIS_SENTINELS",
+      "name":"REDIS_NAME"
+    },
+    "password": "REDIS_PASSWORD",
+    "uri": "REDIS_URI",
+    "database": "REDIS_DATABASE"
+  },
+  "services": {
+    "api": {
+      "endpoint": "CORTEX_API_ENDPOINT"
+    },
+    "accounts":{
+      "endpoint": "ACCOUNTS_API_ENDPOINT",
+      "cacheTTL": "ACCOUNTS_SECRET_TTL"
+    },
+    "callback": {
+      "endpoint": "CALLBACK_ENDPOINT"
+    },
+    "connections": {
+      "endpoint": "CONNECTIONS_ENDPOINT"
+    }
+  },
+  "runtime": {
+    "actions": {
+      "invocationTimeout": "FUNCTION_INVOKE_TIMEOUT",
+      "versionActions": "VERSION_ACTIONS"
+    }
+  },
+  "logging": {
+    "directory": "LOG_DIR",
+    "level": "LOG_LEVEL",
+    "maxsize": "LOG_MAXSIZE",
+    "consoleOnly": "LOG_CONSOLE_ONLY",
+    "disableAudit": "LOG_DISABLE_AUDIT"
+  },
+  "agentLogger": {
+    "enable": "AGENT_LOG_ENABLED",
+    "logPayload": "AGENT_LOG_PAYLOAD",
+    "logProperties": "AGENT_LOG_PROPERTIES",
+    "level": "AGENT_LOG_LEVEL"
+  },
+  "resources": {
+    "snapshotPath": "RESOURCE_SNAP_PATH",
+    "provider": "RESOURCE_PROVIDER",
+    "shareProject": "SHARE_PROJECT"
+  },
+  "features": {
+    "project_check_enable": "FEATURE_AUTHZ_ENABLED",
+    "scripted_skills": "FEATURE_SCRIPTED_SKILLS",
+    "metrics_enabled": "FEATURE_METRICS_ENABLED",
+    "agent_workers": "FEATURE_AGENT_WORKERS",
+    "persist_tasks": "FEATURE_PERSIST_TASKS",
+    "daemon_path_templates": "FEATURE_DAEMON_PATH_TEMPLATES",
+    "disable_cache": "FEATURE_DISABLE_CACHE"
+  },
+  "state": {
+    "store": "STATE_STORE"
+  },
+  "kubernetes": {
+    "namespace": "COMPUTE_NAMESPACE",
+    "watch_reconnect_interval": "WATCH_RECONNECT_INTERVAL",
+    "watch_idle_timeout": "WATCH_IDLE_TIMEOUT",
+    "invokeImage": "INVOKE_IMAGE"
+  },
+  "agentWorker": {
+    "threads": "AGENT_WORKER_THREADS",
+    "concurrency": "AGENT_WORKER_CONCURRENCY",
+    "idleTimeoutMS": "AGENT_WORKER_IDLE_TIMEOUT_MS",
+    "maxQueueSize": "AGENT_WORKER_MAX_QUEUE_SIZE"
+  },
+  "synapse_concurrency": "SYNAPSE_CONCURRENCY",
+  "kafka": {
+    "maxParallelHandles": "KAFKA_MAX_PARALLEL",
+    "maxQueueSize": "KAFKA_MAX_QUEUE_SIZE",
+    "maxBytesPerPartition": "KAFKA_MAX_BYTES_PART"
+  }
+}

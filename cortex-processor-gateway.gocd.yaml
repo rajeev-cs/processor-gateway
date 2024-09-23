@@ -1,0 +1,113 @@
+format_version: 10
+common:
+  tagRepo: &tagRepo
+    approval:
+      type: manual
+    clean_workspace: true
+    environment_variables:
+      TAG_LEVEL: "minor"
+    jobs:
+      Build:
+        elastic_profile_id: gocd-agent-dind-2023
+        tasks:
+          - fetch:
+              stage: build
+              job: Build
+              source: devBranchRevision.json
+              is_file: yes
+          - script: |
+              incrementTag.sh ${TAG_LEVEL}
+  promoteBuild: &promoteBuild
+    approval:
+      type: manual
+    jobs:
+      Promote:
+        elastic_profile_id: gocd-agent-dind-2023
+        environment_variables:
+          PROMOTE_BRANCH: "main"
+          DOCS_REPO_NAME: "cortex-fabric"
+          SWAGGER_DOCS_PATH: "site/public/generated-docs"
+          FILENAME: "#{SERVICE_ID}.swagger.json"
+        tasks:
+          - fetch:
+              stage: build
+              job: Build
+              source: devBranchRevision.json
+              is_file: yes
+          - script: |
+              set -eux
+              COMMIT_SHA="$(cat devBranchRevision.json)"
+              git fetch
+              git checkout -b ${PROMOTE_BRANCH} origin/${PROMOTE_BRANCH}
+              git merge ${COMMIT_SHA} \
+                --ff-only
+              git push origin ${PROMOTE_BRANCH}
+          - fetch:
+              stage: build
+              job: Build
+              source: swagger.json
+              is_file: yes
+          - script: |
+              set -eux              
+              git clone git@github.com:CognitiveScale/${DOCS_REPO_NAME}.git
+              cd ${DOCS_REPO_NAME}
+              cp ../swagger.json ./${SWAGGER_DOCS_PATH}/${FILENAME}
+              git add ${SWAGGER_DOCS_PATH}/${FILENAME} && git commit -m "updating #{SERVICE_ID} swagger api docs" && git push
+              cd .. && rm -rf ${DOCS_REPO_NAME}
+  serviceBuild: &serviceBuild
+    clean_workspace: true
+    jobs:
+      Build:
+        elastic_profile_id: gocd-agent-dind-2023
+        artifacts:
+          - build:
+              source: cruise-output/buildReport*.json
+          - build:
+              source: devBranchRevision.json
+          - build:
+              source: spec/swagger.json
+          - test:
+              source: coverage/lcov-report
+        tabs:
+          coverage: testoutput/lcov-report/index.html
+        tasks:
+          - script: |
+              c12e-common.sh dev
+    #         ./gocd-pipeline-scripts/common/sonar-scan.sh scan
+pipelines:
+  cortex-processor-gateway:
+    group: fabric6
+    materials:
+      cortex-processor-gateway:
+        git: git@github.com:CognitiveScale/cortex-processor-gateway.git
+        branch: develop
+        blacklist:
+          - ./*.gocd.yaml
+    parameters:
+      SERVICE_ID: "gateway"
+    stages:
+      - build: *serviceBuild
+      - publish: *promoteBuild
+      - tag: *tagRepo
+  cortex-processor-gateway-rc:
+    group: fabric6-rc
+    materials:
+      cortex-processor-gateway:
+        git: git@github.com:CognitiveScale/cortex-processor-gateway.git
+        branch: main
+        blacklist:
+          - ./*.gocd.yaml
+    stages:
+      - build: *serviceBuild
+  cortex-processor-gateway-pr:
+    group: pull-requests
+    materials:
+      cortex-processor-gateway:
+        plugin_configuration:
+          id: github.pr
+          version: 1
+        options:
+          url: git@github.com:CognitiveScale/cortex-processor-gateway.git
+          defaultBranch: develop
+    stages:
+      - build: *serviceBuild

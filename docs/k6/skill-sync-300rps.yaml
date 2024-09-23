@@ -1,0 +1,20 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  generateName: sync-skill-300rps
+spec:
+  parallelism: 1
+  runner:
+    image: jgielstracs/smoketest:k6
+    env:
+      - name: CORTEX_TOKEN
+        value: <TOKEN>
+      - name: CORTEX_URL
+        value: https://api.rctest.aks.insights.ai
+      - name: CORTEX_PROJECT
+        value: johan
+  script:
+    configMap:
+      name: skill-sync-300rps
+      file: skill-sync-300rps.js
+

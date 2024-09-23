@@ -1,0 +1,21 @@
+apiVersion: k6.io/v1alpha1
+kind: K6
+metadata:
+  generateName: agent-async-300rps
+spec:
+  # testId
+  parallelism: 1
+  runner:
+    image: jgielstracs/smoketest:k6
+    env:
+      - name: CORTEX_TOKEN
+        value: <TOKEN>
+      - name: CORTEX_URL
+        value: https://api.rctest.aks.insights.ai
+      - name: CORTEX_PROJECT
+        value: johan
+  script:
+    configMap:
+      name: agent-async-300rps
+      file: agent-async-300rps.js
+

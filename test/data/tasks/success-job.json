@@ -1,0 +1,44 @@
+{
+  "apiVersion": "fabric.cognitivescale.com/v1",
+  "kind": "Task",
+  "metadata": {
+    "creationTimestamp": "2021-11-23T21:43:55Z",
+    "finalizers": [
+      "cleanup.finalizers.taskpools.fabric.cognitivescale.com"
+    ],
+    "generateName": "composetests-success-job-skill-success-job-",
+    "generation": 1,
+    "labels": {
+      "fabric.actionName": "success-job",
+      "fabric.activationId": "fde37bc5-eb05-489a-b33d-79bea42e1ff2",
+      "fabric.channelId": "6697e03c-cca0-4969-bd41-86ce00968455",
+      "fabric.jobtype": "invoke",
+      "fabric.project": "cogscale",
+      "fabric.serviceName": "composetests-success-job-skill-success-job",
+      "fabric.skillName": "composetests-success-job-skill",
+      "fabric.source": "gateway"
+    },
+    "name": "composetests-success-job-skill-success-job-79ttq",
+    "namespace": "cortex-compute",
+    "resourceVersion": "2598057",
+    "uid": "d4bb74be-4883-456e-b83a-9cf0b46f4160"
+  },
+  "spec": {
+    "actionName": "success-job",
+    "activationId": "fde37bc5-eb05-489a-b33d-79bea42e1ff2",
+    "callbackUrl": "http://cortex-processor-gateway.cortex.svc.cluster.local:4444/internal/tasks/fde37bc5-eb05-489a-b33d-79bea42e1ff2/6697e03c-cca0-4969-bd41-86ce00968455",
+    "cortexUrl": "http://cortex-internal.cortex.svc.cluster.local",
+    "payload": "{\"activationId\":\"fde37bc5-eb05-489a-b33d-79bea42e1ff2\",\"sessionId\":\"fde37bc5-eb05-489a-b33d-79bea42e1ff2\",\"channelId\":\"6697e03c-cca0-4969-bd41-86ce00968455\",\"projectId\":\"cogscale\",\"agentName\":\"composetests-success-job-agent\",\"skillName\":\"composetests-success-job-skill\",\"timestamp\":1637703835378,\"token\":\"eyJraWQiOiJ1eUNlWmYxZGNrcnpHLVhyMkVTWGc0THU3TDV1YW1HTW5QQmhlYm5qWGtFIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjM3NjE4MTQwLCJleHAiOjE2Mzc3MDQ1NDAsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0._QOek9jfoNt-am2vt9KEbLgON3yQiEa43r-BLhL50r3BtNrBYWhrtCigqlgbXX2BEwLPBTyTBF5FzXoxohV7Aw\",\"payload\":{\"text\":\"\"},\"apiEndpoint\":\"http://cortex-internal.cortex.svc.cluster.local\",\"properties\":{},\"outputName\":\"output\"}",
+    "resources": {},
+    "skillName": "composetests-success-job-skill",
+    "skillOutputName": "output",
+    "taskPoolName": "default",
+    "token": "eyJraWQiOiJ1eUNlWmYxZGNrcnpHLVhyMkVTWGc0THU3TDV1YW1HTW5QQmhlYm5qWGtFIiwiYWxnIjoiRWREU0EifQ.eyJiZWFyZXIiOiJ1c2VyIiwiaWF0IjoxNjM3NjE4MTQwLCJleHAiOjE2Mzc3MDQ1NDAsInJvbGVzIjpbImNvcnRleC1hZG1pbnMiXSwic3ViIjoiY29ydGV4QGV4YW1wbGUuY29tIiwiYXVkIjoiY29ydGV4IiwiaXNzIjoiY29nbml0aXZlc2NhbGUuY29tIn0._QOek9jfoNt-am2vt9KEbLgON3yQiEa43r-BLhL50r3BtNrBYWhrtCigqlgbXX2BEwLPBTyTBF5FzXoxohV7Aw"
+  },
+  "status": {
+    "reason": "Completed",
+    "state": "Completed",
+    "endTime": "2021-11-23T15:38:41Z",
+    "startTime": "2021-11-23T15:37:49Z"
+  }
+}

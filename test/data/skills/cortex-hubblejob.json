@@ -1,0 +1,36 @@
+{
+  "_environmentId": "cortex/default",
+  "_id": "5fb6cfc467e216d94417fc49",
+  "camel": "1.0.0",
+  "name": "cortex/hubblejob",
+  "title": "Compute hubble data",
+  "description": "...",
+  "inputs": [
+    {
+      "_id": "5fb6cfc467e216d94417fc4a",
+      "name": "input",
+      "title": "input",
+      "routing": {
+        "all": {
+          "action": "cogscale/hubblejob",
+          "output": "output",
+          "runtime": "cortex/test-job"
+        }
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "_id": "5fb6cfc467e216d94417fc4b",
+      "name": "output",
+      "title": "output"
+    }
+  ],
+  "_projectId": "cogscale",
+  "tags": [],
+  "properties": [],
+  "datasets": [],
+  "_createdAt": "2020-11-19T20:04:20.497Z",
+  "_updatedAt": "2020-11-19T20:04:20.497Z",
+  "_version": 1
+}

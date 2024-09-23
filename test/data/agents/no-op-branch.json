@@ -1,0 +1,99 @@
+{
+  "camel": "1.0.0",
+  "name": "no-op-branch",
+  "title": "splitter agent",
+  "inputs": [
+    {
+      "signalType": "Service",
+      "name": "input",
+      "title": "input",
+      "signalId": "18e40186-f88b-41e8-8ffa-efef298bfdb2",
+      "parameters": [
+        {
+          "name": "number",
+          "required": false,
+          "title": "number",
+          "type": "integer"
+        }
+      ],
+      "output": "output"
+    }
+  ],
+  "outputs": [
+    {
+      "signalType": "Service",
+      "name": "output",
+      "title": "predictions",
+      "signalId": "a440b99f-6039-4481-93e3-00761fa67cfc",
+      "parameters": [
+        {
+          "name": "predictions",
+          "required": false,
+          "title": "predictions",
+          "type": "object"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "properties": [],
+      "skillName": "branch",
+      "title": "branching skill",
+      "description": "...",
+      "refId": "41fa9b03-5366-4935-8536-a6bb55f884d7"
+    },
+    {
+      "properties": [],
+      "skillName": "good-skill",
+      "title": "skill",
+      "description": "...",
+      "refId": "9cbf19b0-5df0-4efa-985c-846f20ebd412"
+    }
+  ],
+  "mappings": [
+    {
+      "from": {
+        "input": {
+          "signalId": "18e40186-f88b-41e8-8ffa-efef298bfdb2"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "41fa9b03-5366-4935-8536-a6bb55f884d7",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "41fa9b03-5366-4935-8536-a6bb55f884d7",
+          "output": "output"
+        }
+      },
+      "to": {
+        "skill": {
+          "refId": "9cbf19b0-5df0-4efa-985c-846f20ebd412",
+          "input": "input"
+        }
+      },
+      "rules": []
+    },
+    {
+      "from": {
+        "skill": {
+          "refId": "9cbf19b0-5df0-4efa-985c-846f20ebd412",
+          "output": "output"
+        }
+      },
+      "to": {
+        "output": {
+          "signalId": "a440b99f-6039-4481-93e3-00761fa67cfc"
+        }
+      },
+      "rules": []
+    }
+  ]
+}

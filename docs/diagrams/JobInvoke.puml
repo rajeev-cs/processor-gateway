@@ -1,0 +1,24 @@
+@startuml
+participant "Catalog" as cat order 10
+participant "Gateway" as gw order 20
+participant "Fabric Controller" as ctrl order 40
+participant "Kubernetes" as k8s order 30
+actor Developer
+Developer -> cat: Saves skill
+activate cat
+cat -> k8s: \tUpsert skill resource
+deactivate cat
+Developer -> gw: Skill invoke
+activate gw
+gw -> k8s: Create task resource
+ctrl <-- k8s: Notify NEW Task
+alt CONTROLLER Task Slots available
+ctrl <-> k8s: Start job
+k8s --> ctrl: Notify job complete
+ctrl -> k8s: Update task Status
+ctrl -> gw: Invoke job callback
+else No slots available
+ctrl --> ctrl: Retry and fallback
+end
+deactivate gw
+@enduml
