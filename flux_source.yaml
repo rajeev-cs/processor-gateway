@@ -7,4 +7,4 @@ spec:
   interval: 30s
   ref:
     branch: main
-  url: https://rajeev-cs/processor-gateway.git
+  url: https://github.com/rajeev-cs/processor-gateway.git
